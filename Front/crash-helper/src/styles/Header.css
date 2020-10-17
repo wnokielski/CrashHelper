@@ -1,0 +1,9 @@
+.crash-helper-logo{
+    width: 200px;
+    height: 45px;
+    margin: 8px 24px 16px 0px;
+    float: left;
+
+    background: url(../resources/logo.png) no-repeat center;
+    background-size: contain;
+}
