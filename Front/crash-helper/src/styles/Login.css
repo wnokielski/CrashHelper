@@ -1,0 +1,11 @@
+.submit-button{
+    position: relative;
+    left: 25%;
+}
+
+.login-box{
+    position: absolute;
+    width: 30%;
+    top: 40%;
+    left: 33%;
+}
