@@ -2,6 +2,7 @@ import React from 'react'
 import HomePageStyle from '../styles/HomePage.css'
 import 'antd/dist/antd.css';
 import {Layout, Menu, Button} from 'antd'
+import {Link} from 'react-router-dom'
 import MyHeader from '../components/Header.jsx'
 import MyFooter from '../components/Footer.jsx'
 
@@ -18,7 +19,7 @@ class HomePage extends React.Component{
                         <div className="ch"></div>
                     </div>
                     <div className="button-div">
-                        <Button className="start-btn" type="primary" size="large">Start now</Button>
+                    <Link to="/register"><Button className="start-btn" type="primary" size="large">Start now</Button></Link>
                     </div>
                 </Content>
                 <MyFooter />

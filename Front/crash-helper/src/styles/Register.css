@@ -1,0 +1,22 @@
+.cards{
+    background-color: #FFFFFF;
+    position: absolute;
+    left: 30%;
+    top: 40%;
+}
+
+.client-card{
+    position: relative;
+    left: 400px;
+    bottom: 256px;
+}
+
+.content{
+    background-color: #FFFFFF;
+}
+
+.title-text{
+    position: absolute;
+    left: 30%;
+    top: 20%;
+}
