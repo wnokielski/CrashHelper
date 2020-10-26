@@ -1,22 +1,29 @@
-.cards{
-    background-color: #FFFFFF;
-    position: absolute;
-    left: 30%;
-    top: 40%;
+.cards {
+  background-color: #ffffff;
+  position: absolute;
+  left: 30%;
+  top: 40%;
 }
 
-.client-card{
-    position: relative;
-    left: 400px;
-    bottom: 256px;
+.client-card {
+  position: relative;
+  left: 400px;
+  bottom: 256px;
 }
 
-.content{
-    background-color: #FFFFFF;
+.content {
+  background-color: #ffffff;
 }
 
-.title-text{
-    position: absolute;
-    left: 30%;
-    top: 20%;
+.title-text {
+  position: absolute;
+  left: 30%;
+  top: 20%;
+}
+
+.registration-form {
+  position: absolute;
+  width: 30%;
+  top: 20%;
+  left: 30%;
 }
