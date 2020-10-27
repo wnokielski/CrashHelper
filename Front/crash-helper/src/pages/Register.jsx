@@ -174,7 +174,7 @@ class Registration extends React.Component {
               </Form.Item>
 
               <Form.Item
-                name="street-number"
+                //name="street-number"
                 label="Street number"
                 rules={[
                   {
@@ -182,7 +182,7 @@ class Registration extends React.Component {
                   },
                   {
                     required: true,
-                    message: "Please input your street name!",
+                    message: "Please input your street number!",
                   },
                 ]}
               >
