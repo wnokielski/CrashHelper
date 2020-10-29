@@ -8,6 +8,7 @@ import org.nokwoj.crashhelper.repos.WorkshopRepository;
 import org.nokwoj.crashhelper.services.Consts;
 import org.nokwoj.crashhelper.services.interfaces.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -19,13 +20,14 @@ public class UserService implements IUserService{
     @Autowired
     WorkshopRepository workshopRepository;
 
+    @Autowired
+    PasswordEncoder passwordEncoder;
+
     @Override
     public int registerNewWorkshop(WorkshopRegistrationDto workshopDto){
         if(accountRepository.findAccountByEmail(workshopDto.getEmail()) != null) return Consts.emailAlreadyUsed;
 
         Account account = this.registerAccount(workshopDto.getEmail(), workshopDto.getPassword(), "WORKSHOP");
-
-        String accountId = account.getId();
 
         Workshop workshop = new Workshop();
         workshop.setCity(workshopDto.getCity());
@@ -44,7 +46,7 @@ public class UserService implements IUserService{
 
         Account account = new Account();
         account.setEmail(email);
-        account.setPassword(password);
+        account.setPassword(passwordEncoder.encode(password));
         account.setRole(role);
 
         return accountRepository.save(account);

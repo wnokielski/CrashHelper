@@ -17,7 +17,7 @@ public class WorkshopsController {
     WorkshopRepository repo;
 
     @GetMapping
-    public ArrayList<Workshop> getAllEvents(){
+    public ArrayList<Workshop> getAllWorkshops(){
         return (ArrayList<Workshop>) repo.findAll();
     }
 

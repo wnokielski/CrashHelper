@@ -16,7 +16,7 @@ public class UsersController {
 
     @PostMapping("/register/workshop")
     @ResponseStatus(HttpStatus.CREATED)
-    public int registerUser(@RequestBody WorkshopRegistrationDto workshopDto){
+    public int registerWorkshop(@RequestBody WorkshopRegistrationDto workshopDto){
         int result = userService.registerNewWorkshop(workshopDto);
         return result;
     }
