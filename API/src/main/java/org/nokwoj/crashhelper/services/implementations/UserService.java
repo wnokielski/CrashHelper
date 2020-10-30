@@ -1,9 +1,8 @@
 package org.nokwoj.crashhelper.services.implementations;
 
-import org.nokwoj.crashhelper.models.Account;
-import org.nokwoj.crashhelper.models.Workshop;
-import org.nokwoj.crashhelper.models.WorkshopRegistrationDto;
+import org.nokwoj.crashhelper.models.*;
 import org.nokwoj.crashhelper.repos.AccountRepository;
+import org.nokwoj.crashhelper.repos.ClientRepository;
 import org.nokwoj.crashhelper.repos.WorkshopRepository;
 import org.nokwoj.crashhelper.services.Consts;
 import org.nokwoj.crashhelper.services.interfaces.IUserService;
@@ -19,6 +18,9 @@ public class UserService implements IUserService{
 
     @Autowired
     WorkshopRepository workshopRepository;
+
+    @Autowired
+    ClientRepository clientRepository;
 
     @Autowired
     PasswordEncoder passwordEncoder;
@@ -38,6 +40,22 @@ public class UserService implements IUserService{
         workshop.setOpinions(null);
         workshop.setAccount(account);
         workshopRepository.save(workshop);
+
+        return Consts.registrationSuccess;
+    }
+
+    @Override
+    public int registerNewClient(ClientRegistrationDto clientDto){
+        if(accountRepository.findAccountByEmail(clientDto.getEmail()) != null) return Consts.emailAlreadyUsed;
+
+        Account account = this.registerAccount(clientDto.getEmail(), clientDto.getPassword(), "CLIENT");
+
+        Client client = new Client();
+        client.setName(clientDto.getName());
+        client.setSurname(clientDto.getSurname());
+        client.setPhoneNumber(clientDto.getPhoneNumber());
+        client.setAccount(account);
+        clientRepository.save(client);
 
         return Consts.registrationSuccess;
     }

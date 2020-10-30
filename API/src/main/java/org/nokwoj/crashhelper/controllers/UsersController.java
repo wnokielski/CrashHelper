@@ -1,5 +1,6 @@
 package org.nokwoj.crashhelper.controllers;
 
+import org.nokwoj.crashhelper.models.ClientRegistrationDto;
 import org.nokwoj.crashhelper.models.WorkshopRegistrationDto;
 import org.nokwoj.crashhelper.services.Consts;
 import org.nokwoj.crashhelper.services.interfaces.IUserService;
@@ -18,6 +19,13 @@ public class UsersController {
     @ResponseStatus(HttpStatus.CREATED)
     public int registerWorkshop(@RequestBody WorkshopRegistrationDto workshopDto){
         int result = userService.registerNewWorkshop(workshopDto);
+        return result;
+    }
+
+    @PostMapping("/register/client")
+    @ResponseStatus(HttpStatus.CREATED)
+    public int registerClient(@RequestBody ClientRegistrationDto clientDto){
+        int result = userService.registerNewClient(clientDto);
         return result;
     }
 }

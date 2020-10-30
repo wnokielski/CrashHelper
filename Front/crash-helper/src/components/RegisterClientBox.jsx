@@ -2,9 +2,9 @@ import React from "react";
 import Register from "../styles/Register.css";
 import "antd/dist/antd.css";
 import { Form, Layout, Typography, Input, Button } from "antd";
-import MyHeader from "../components/Header.jsx";
-import MyFooter from "../components/Footer.jsx";
-import RegistrationCards from "../components/RegistrationCards";
+import MyHeader from "./Header.jsx";
+import MyFooter from "./Footer.jsx";
+import RegistrationCards from "./RegistrationCards";
 import * as Consts from "../resources/Consts";
 import { useHistory } from "react-router-dom";
 
@@ -42,22 +42,19 @@ const RegistrationForm = () => {
 
   const onFinish = (values) => {
     //console.log("Received values of form: ", values);
-    const words = values.address.split(" ");
 
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         name: values.name,
-        city: values.city,
-        street: words[0],
-        stNumber: words[1],
+        surname: values.surname,
         phoneNumber: values.phone,
         email: values.email,
         password: values.password,
       }),
     };
-    fetch(`${Consts.API_URL}/register/workshop`, requestOptions)
+    fetch(`${Consts.API_URL}/register/client`, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         if (data == 1) {
@@ -92,6 +89,7 @@ const RegistrationForm = () => {
       >
         <Input />
       </Form.Item>
+
       <Form.Item
         name="password"
         label="Password"
@@ -129,6 +127,7 @@ const RegistrationForm = () => {
       >
         <Input.Password />
       </Form.Item>
+
       <Form.Item
         name="name"
         label="Name"
@@ -138,37 +137,23 @@ const RegistrationForm = () => {
           },
           {
             required: true,
-            message: "Please input your workshop name!",
+            message: "Please input your name!",
           },
         ]}
       >
         <Input />
       </Form.Item>
+
       <Form.Item
-        name="city"
-        label="City"
+        name="surname"
+        label="Surname"
         rules={[
           {
             type: "string",
           },
           {
             required: true,
-            message: "Please input your city!",
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
-      <Form.Item
-        name="address"
-        label="Address"
-        rules={[
-          {
-            type: "string",
-          },
-          {
-            required: true,
-            message: "Please input your address!",
+            message: "Please input your surname!",
           },
         ]}
       >
@@ -187,6 +172,7 @@ const RegistrationForm = () => {
       >
         <Input />
       </Form.Item>
+
       <Form.Item {...tailFormItemLayout}>
         <Button type="primary" htmlType="submit">
           Register
@@ -196,10 +182,10 @@ const RegistrationForm = () => {
   );
 };
 
-class RegisterWorkshopBox extends React.Component {
+class RegisterClientBox extends React.Component {
   render() {
     return <RegistrationForm />;
   }
 }
 
-export default RegisterWorkshopBox;
+export default RegisterClientBox;
