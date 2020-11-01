@@ -1,6 +1,7 @@
 package org.nokwoj.crashhelper.services.implementations;
 
 import org.nokwoj.crashhelper.models.Account;
+import org.nokwoj.crashhelper.models.MyUserDetails;
 import org.nokwoj.crashhelper.repos.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -23,13 +24,13 @@ public class MyUserDetailsService implements UserDetailsService {
 
         Account account = accountRepository.findAccountByEmail(email);
 
-
         if(account == null) {
             throw new UsernameNotFoundException("Account not found");
         }
 
-        List<SimpleGrantedAuthority> authorities = Arrays.asList(new SimpleGrantedAuthority(account.getRole()));
+        MyUserDetails myUserDetails = new MyUserDetails(account);
 
-        return new User(account.getEmail(), account.getPassword(), authorities);
+        return myUserDetails;
+
     }
 }
