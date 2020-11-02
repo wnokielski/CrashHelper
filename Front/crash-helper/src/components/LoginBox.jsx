@@ -16,9 +16,11 @@ const tailLayout = {
 const LoginForm = () => {
   let history = useHistory();
   const onFinish = async (values) => {
-    await AuthService.authorizeUser(values.email, values.password);
-    if (sessionStorage.getItem("successfulLogin") == "true")
-      history.push("/main");
+    await AuthService.authorizeUser(values.email, values.password).then(
+      (response) => {
+        if (response == 200) history.push("/main");
+      }
+    );
   };
 
   return (
