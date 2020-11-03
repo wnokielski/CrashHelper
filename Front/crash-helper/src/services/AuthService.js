@@ -1,10 +1,4 @@
 import * as Consts from "../resources/Consts";
-import { Redirect } from "react-router-dom";
-import { render } from "@testing-library/react";
-
-/* function redirect() {
-  let history = useHistory();
-} */
 
 class AuthService {
   createBasicAuthToken(email, password) {

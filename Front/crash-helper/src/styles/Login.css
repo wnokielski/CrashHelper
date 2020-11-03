@@ -1,11 +1,18 @@
-.submit-button{
-    position: relative;
-    left: 25%;
+.submit-button {
+  position: relative;
+  right: 1em;
 }
 
-.login-box{
-    position: absolute;
-    width: 30%;
-    top: 40%;
-    left: 33%;
+.login-box {
+  display: flex;
+  height: 50em;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  text-align: center;
+  background: #ffffff;
+  padding: 24px;
+  min-height: 280px;
 }

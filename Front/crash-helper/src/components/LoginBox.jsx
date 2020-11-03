@@ -13,6 +13,10 @@ const tailLayout = {
   wrapperCol: { offset: 8, span: 16 },
 };
 
+const inputStyle = {
+  width: "25em",
+};
+
 const LoginForm = () => {
   let history = useHistory();
   const onFinish = async (values) => {
@@ -26,11 +30,11 @@ const LoginForm = () => {
   return (
     <Form {...layout} name="login" onFinish={onFinish}>
       <Form.Item label="E-mail" name="email">
-        <Input />
+        <Input style={inputStyle} />
       </Form.Item>
 
       <Form.Item label="Password" name="password">
-        <Input.Password />
+        <Input.Password style={inputStyle} />
       </Form.Item>
 
       <Form.Item {...tailLayout}>

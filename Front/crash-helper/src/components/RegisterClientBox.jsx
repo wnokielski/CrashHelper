@@ -36,6 +36,11 @@ const tailFormItemLayout = {
   },
 };
 
+const buttonStyle = {
+  position: "relative",
+  right: "2em",
+};
+
 const RegistrationForm = () => {
   const [form] = Form.useForm();
   let history = useHistory();
@@ -174,7 +179,7 @@ const RegistrationForm = () => {
       </Form.Item>
 
       <Form.Item {...tailFormItemLayout}>
-        <Button type="primary" htmlType="submit">
+        <Button type="primary" htmlType="submit" style={buttonStyle}>
           Register
         </Button>
       </Form.Item>

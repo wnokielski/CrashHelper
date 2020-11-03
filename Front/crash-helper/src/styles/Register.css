@@ -1,24 +1,10 @@
-.cards {
-  background-color: #ffffff;
-  position: absolute;
-  left: 30%;
-  top: 40%;
-}
-
-.client-card {
-  position: relative;
-  left: 400px;
-  bottom: 256px;
-}
-
 .content {
   background-color: #ffffff;
 }
 
 .title-text {
-  position: absolute;
-  left: 30%;
-  top: 20%;
+  position: relative;
+  bottom: 3em;
 }
 
 .registration-form {
@@ -26,4 +12,20 @@
   width: 30%;
   top: 20%;
   left: 30%;
+}
+
+.cards-div {
+  display: flex;
+  flex-direction: column;
+  height: 50em;
+  justify-content: center;
+  align-items: center;
+}
+
+.registration-box {
+  display: flex;
+  flex-direction: column;
+  height: 50em;
+  justify-content: center;
+  align-items: center;
 }

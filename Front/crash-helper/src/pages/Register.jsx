@@ -33,10 +33,12 @@ class Registration extends React.Component {
         <Layout>
           <MyHeader selected={["null"]} />
           <Content className="content">
-            <Title className="title-text">
-              Please choose a type of your account
-            </Title>
-            <div className="cards">
+            <div className="cards-div">
+              <div>
+                <Title className="title-text">
+                  Please choose a type of your account
+                </Title>
+              </div>
               <RegistrationCards updateState={this.updateState} />
             </div>
           </Content>
@@ -48,7 +50,9 @@ class Registration extends React.Component {
         <Layout>
           <MyHeader selected={["null"]} />
           <Content className="content">
-            <RegisterWorkshopBox />
+            <div className="registration-box">
+              <RegisterWorkshopBox />
+            </div>
           </Content>
           <MyFooter />
         </Layout>
@@ -58,7 +62,9 @@ class Registration extends React.Component {
         <Layout>
           <MyHeader selected={["null"]} />
           <Content className="content">
-            <RegisterClientBox />
+            <div className="registration-box">
+              <RegisterClientBox />
+            </div>
           </Content>
           <MyFooter />
         </Layout>
