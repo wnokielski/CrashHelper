@@ -7,6 +7,9 @@ import Register from "./pages/Register";
 import MainPage from "./pages/MainPage";
 
 function App() {
+  sessionStorage.setItem("userId", null);
+  sessionStorage.setItem("authToken", null);
+  sessionStorage.setItem("userType", null);
   return (
     <div className="App">
       <Router>

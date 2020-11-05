@@ -5,6 +5,7 @@ import { Layout, Menu, Button } from "antd";
 import MyHeader from "../components/Header.jsx";
 import MyFooter from "../components/Footer.jsx";
 import LoginBox from "../components/LoginBox";
+import MySider from "../components/Sider";
 
 const { Content } = Layout;
 
@@ -12,7 +13,8 @@ class MainPage extends React.Component {
   render() {
     return (
       <Layout>
-        <MyHeader selected={[null]} />
+        <MyHeader selected={[null]} type="logged" />
+        <MySider></MySider>
         <Content>Po logowanku!</Content>
         <MyFooter />
       </Layout>
