@@ -12,7 +12,7 @@ class HomePage extends React.Component {
   render() {
     return (
       <Layout>
-        <MyHeader selected={["1"]} />
+        <MyHeader selected={["1"]} type="unlogged" />
         <Content>
           <div className="site-layout-content">
             <div className="box">

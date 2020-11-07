@@ -12,7 +12,7 @@ class Login extends React.Component {
   render() {
     return (
       <Layout>
-        <MyHeader selected={["3"]} />
+        <MyHeader selected={["3"]} type="unlogged" />
         <Content>
           <div className="content">
             <div className="login-box">

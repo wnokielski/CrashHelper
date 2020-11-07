@@ -5,11 +5,9 @@ import AboutUs from "./pages/AboutUs";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import MainPage from "./pages/MainPage";
+import Profile from "./pages/Profile";
 
 function App() {
-  sessionStorage.setItem("userId", null);
-  sessionStorage.setItem("authToken", null);
-  sessionStorage.setItem("userType", null);
   return (
     <div className="App">
       <Router>
@@ -19,6 +17,7 @@ function App() {
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/main" component={MainPage} />
+          <Route exact path="/profile" component={Profile} />
         </Switch>
       </Router>
     </div>

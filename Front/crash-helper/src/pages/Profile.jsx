@@ -8,21 +8,21 @@ import MySider from "../components/Sider";
 
 const { Content } = Layout;
 
-class MainPage extends React.Component {
+class Profile extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { userType: this.props.location.state.userType };
+    this.state = { userType: sessionStorage.getItem("userType") };
   }
   render() {
     return (
       <Layout>
         <MyHeader selected={[null]} type="logged" />
         <MySider userType={this.state.userType}></MySider>
-        <Content className="content">Po logowanku!</Content>
+        <Content className="content">Profil</Content>
         <MyFooter />
       </Layout>
     );
   }
 }
 
-export default MainPage;
+export default Profile;
