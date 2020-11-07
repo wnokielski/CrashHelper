@@ -10,11 +10,15 @@ import MySider from "../components/Sider";
 const { Content } = Layout;
 
 class MainPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { userType: this.props.location.state.userType };
+  }
   render() {
     return (
       <Layout>
         <MyHeader selected={[null]} type="logged" />
-        <MySider></MySider>
+        <MySider userType={this.state.userType}></MySider>
         <Content>Po logowanku!</Content>
         <MyFooter />
       </Layout>

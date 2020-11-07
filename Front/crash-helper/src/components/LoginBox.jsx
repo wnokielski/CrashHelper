@@ -4,6 +4,7 @@ import "antd/dist/antd.css";
 import { Form, Input, Button } from "antd";
 import AuthService from "../services/AuthService";
 import { useHistory } from "react-router-dom";
+import * as Consts from "../resources/Consts";
 
 const layout = {
   labelCol: { span: 8 },
@@ -22,7 +23,26 @@ const LoginForm = () => {
   const onFinish = async (values) => {
     await AuthService.authorizeUser(values.email, values.password).then(
       (response) => {
-        if (response == 200) history.push("/main");
+        if (response == 200) {
+          const action = async () => {
+            let headers = {
+              Authorization: sessionStorage.getItem("authToken"),
+            };
+
+            fetch(`${Consts.API_URL}/session`, { headers })
+              .then((response) => response.json())
+              .then((data) => {
+                sessionStorage.setItem("userId", data.userId);
+                sessionStorage.setItem("userType", data.userType);
+
+                history.push({
+                  pathname: "/main",
+                  state: { userType: data.userType },
+                });
+              });
+          };
+          action();
+        }
       }
     );
   };

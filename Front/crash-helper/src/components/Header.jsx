@@ -3,6 +3,7 @@ import HeaderStyle from "../styles/Header.css";
 import "antd/dist/antd.css";
 import { Layout, Menu, Button } from "antd";
 import { Link } from "react-router-dom";
+import AuthService from "../services/AuthService";
 
 const { Header } = Layout;
 
@@ -22,12 +23,13 @@ class MyHeader extends React.Component {
               selectedKeys={this.props.selected}
             >
               <Menu.Item key="1">
-                <Link to="/main"></Link>Main
-              </Menu.Item>
-              <Menu.Item key="2">
                 <Link to="/"></Link>My profile
               </Menu.Item>
-              <Menu.Item key="3" style={{ float: "right" }}>
+              <Menu.Item
+                key="2"
+                style={{ float: "right" }}
+                onClick={AuthService.unauthorizeUser}
+              >
                 <Link to="/"></Link>Sign out
               </Menu.Item>
             </Menu>

@@ -10,17 +10,6 @@ class AuthService {
       "authToken",
       this.createBasicAuthToken(email, password)
     );
-
-    const headers = {
-      Authorization: sessionStorage.getItem("authToken"),
-    };
-
-    fetch(`${Consts.API_URL}/session`, { headers })
-      .then((response) => response.json())
-      .then((data) => {
-        sessionStorage.setItem("userId", data.userId);
-        sessionStorage.setItem("userType", data.userType);
-      });
   }
 
   async authorizeUser(email, password) {
@@ -41,6 +30,12 @@ class AuthService {
       }
     });
     return status;
+  }
+
+  async unauthorizeUser() {
+    sessionStorage.setItem("userId", null);
+    sessionStorage.setItem("userType", null);
+    sessionStorage.setItem("authToken", null);
   }
 }
 
