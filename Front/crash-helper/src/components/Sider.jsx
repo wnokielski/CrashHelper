@@ -20,6 +20,7 @@ class MySider extends React.Component {
               overflow: "auto",
               position: "fixed",
               left: 0,
+              "z-index": "10",
             }}
           >
             <Menu

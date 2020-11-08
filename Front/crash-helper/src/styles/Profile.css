@@ -4,3 +4,20 @@
   padding: 24px;
   min-height: 280px;
 }
+
+.descriptions {
+  position: relative;
+  top: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex: 0 0 50vw;
+}
+
+.avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

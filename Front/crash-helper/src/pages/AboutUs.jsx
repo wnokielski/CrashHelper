@@ -11,7 +11,7 @@ class AboutUs extends React.Component {
   render() {
     return (
       <Layout>
-        <MyHeader selected={["2"]} />
+        <MyHeader selected={["2"]} type="unlogged" />
         <Content>
           <div className="content">Tutaj będzie jakiś ciekawy tekst</div>
         </Content>
