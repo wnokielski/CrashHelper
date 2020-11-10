@@ -31,7 +31,7 @@ class Registration extends React.Component {
     if (this.state.render == "choose")
       return (
         <Layout>
-          <MyHeader selected={["null"]} />
+          <MyHeader selected={["null"]} type="unlogged" />
           <Content className="content">
             <div className="cards-div">
               <div>
@@ -48,7 +48,7 @@ class Registration extends React.Component {
     if (this.state.render == "workshop")
       return (
         <Layout>
-          <MyHeader selected={["null"]} />
+          <MyHeader selected={["null"]} type="unlogged" />
           <Content className="content">
             <div className="registration-box">
               <RegisterWorkshopBox />
@@ -60,7 +60,7 @@ class Registration extends React.Component {
     if (this.state.render == "client")
       return (
         <Layout>
-          <MyHeader selected={["null"]} />
+          <MyHeader selected={["null"]} type="unlogged" />
           <Content className="content">
             <div className="registration-box">
               <RegisterClientBox />

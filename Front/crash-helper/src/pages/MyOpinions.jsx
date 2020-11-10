@@ -1,5 +1,5 @@
 import React from "react";
-import MainStyle from "../styles/MainPage.css";
+import MyOpinionsStyle from "../styles/MyOpinions.css";
 import "antd/dist/antd.css";
 import { Layout, Menu, Button } from "antd";
 import MyHeader from "../components/Header.jsx";
@@ -8,25 +8,28 @@ import MySider from "../components/Sider";
 
 const { Content } = Layout;
 
-class MainPage extends React.Component {
+class MyOpinions extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { userType: this.props.location.state.userType };
+    this.state = { userType: sessionStorage.getItem("userType") };
   }
+
+  componentDidMount() {}
+
   render() {
     return (
       <Layout>
-        <MyHeader selected={[null]} type="logged" />
+        <MyHeader selected={["null"]} type="logged" />
         <MySider
           userType={this.state.userType}
-          open={["null"]}
-          selected={["null"]}
+          selected={["5"]}
+          open={["sub2"]}
         ></MySider>
-        <Content className="content">Po logowanku!</Content>
+        <Content className="content">My opinions</Content>
         <MyFooter />
       </Layout>
     );
   }
 }
 
-export default MainPage;
+export default MyOpinions;

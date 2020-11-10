@@ -8,7 +8,7 @@ class MyFooter extends React.Component {
   render() {
     return (
       <Layout>
-        <Footer className="footer">
+        <Footer className="footer" style={{ "z-index": "11" }}>
           Crash Helper ©2020 Created by W. Nokielski
         </Footer>
       </Layout>
