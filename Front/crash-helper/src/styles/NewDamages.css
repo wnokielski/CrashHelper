@@ -4,3 +4,20 @@
   padding: 24px;
   min-height: 280px;
 }
+
+.add-damage-button {
+  position: relative;
+  right: 32vw;
+}
+
+.cancel-button {
+  position: relative;
+  right: 32vw;
+}
+
+.upload-div {
+  position: relative;
+  width: 30em;
+  left: 30%;
+  bottom: 30%;
+}

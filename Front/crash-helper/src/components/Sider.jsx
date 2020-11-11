@@ -34,7 +34,7 @@ class MySider extends React.Component {
                   <Link to="/damages/new"></Link>New damages
                 </Menu.Item>
                 <Menu.Item key="2">
-                  <Link to="/damages/priced"></Link>New damagesPriced damages
+                  <Link to="/damages/priced"></Link>Priced damages
                 </Menu.Item>
                 <Menu.Item key="3">
                   <Link to="/damages/inProgress"></Link>Damages in progress
