@@ -15,9 +15,24 @@
   right: 32vw;
 }
 
-.upload-div {
+.add-damage-form {
+  position: absolute;
+  width: 30%;
+  top: 20%;
+  left: 30%;
+}
+
+.upload-item {
   position: relative;
   width: 30em;
-  left: 30%;
+  left: 35%;
   bottom: 30%;
+}
+
+.add-damage-box {
+  display: flex;
+  flex-direction: column;
+  height: 50em;
+  justify-content: center;
+  align-items: center;
 }
