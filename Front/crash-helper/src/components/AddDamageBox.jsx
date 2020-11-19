@@ -87,6 +87,7 @@ const NewDamageForm = (props) => {
         }
       }
     );
+    window.location.reload(false);
   };
 
   const uploadProps = {

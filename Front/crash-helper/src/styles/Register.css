@@ -29,3 +29,9 @@
   justify-content: center;
   align-items: center;
 }
+
+.photos-list-div {
+  position: relative;
+  left: 30%;
+  top: 20%;
+}

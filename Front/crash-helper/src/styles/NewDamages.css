@@ -36,3 +36,9 @@
   justify-content: center;
   align-items: center;
 }
+
+.list-div {
+  width: 80%;
+  position: relative;
+  left: 15%;
+}
