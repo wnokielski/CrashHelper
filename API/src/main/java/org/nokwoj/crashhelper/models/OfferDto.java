@@ -1,15 +1,6 @@
 package org.nokwoj.crashhelper.models;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.data.mongodb.core.mapping.Document;
-
-@Document
-public class Offer {
-
-    @Id
-    private String id;
-
+public class OfferDto {
 
     private String damageId;
 
@@ -19,11 +10,11 @@ public class Offer {
 
     private String description;
 
-    public Offer() {
+    public OfferDto() {
 
     }
 
-    public Offer(String damageId, String workshopId, Integer value, String description){
+    public OfferDto(String damageId, String workshopId, Integer value, String description){
         this.damageId = damageId;
         this.workshopId = workshopId;
         this.value = value;
@@ -36,14 +27,6 @@ public class Offer {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getDamageId() {

@@ -4,3 +4,31 @@
   padding: 24px;
   min-height: 280px;
 }
+
+.cancel-button {
+  position: relative;
+  right: 32vw;
+}
+
+.photos-list-div {
+  position: relative;
+  width: 50%;
+  left: 20%;
+}
+
+.price-button {
+  position: relative;
+}
+
+.buttons-div {
+  position: relative;
+  left: 4em;
+  bottom: 1em;
+}
+
+.price-damage-form {
+  position: absolute;
+  width: 30%;
+  top: 20%;
+  left: 30%;
+}

@@ -3,6 +3,7 @@ package org.nokwoj.crashhelper.controllers;
 import org.nokwoj.crashhelper.models.ClientRegistrationDto;
 import org.nokwoj.crashhelper.models.Damage;
 import org.nokwoj.crashhelper.models.DamageRegistrationDto;
+import org.nokwoj.crashhelper.models.OfferDto;
 import org.nokwoj.crashhelper.repos.DamageRepository;
 import org.nokwoj.crashhelper.services.implementations.DamageService;
 import org.nokwoj.crashhelper.services.implementations.FileService;
@@ -48,6 +49,12 @@ public class DamagesController {
     @GetMapping("/photos/{filename}")
     public Resource getDamagePhotoByFilename(@PathVariable String filename){
         return fileService.getPhoto(filename);
+    }
+
+    @PostMapping("/priceDamage")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void priceDamage(@RequestBody OfferDto offerDto){
+        damageService.priceDamage(offerDto);
     }
 
 }

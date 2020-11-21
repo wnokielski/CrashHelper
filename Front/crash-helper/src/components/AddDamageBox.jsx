@@ -172,7 +172,7 @@ const NewDamageForm = (props) => {
 
       <Form.Item {...tailFormItemLayout}>
         <Button type="primary" htmlType="submit" style={buttonStyle}>
-          Register
+          Add damage
         </Button>
       </Form.Item>
     </Form>
