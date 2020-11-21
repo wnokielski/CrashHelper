@@ -9,5 +9,6 @@ import java.util.ArrayList;
 @Repository
 public interface DamageRepository extends MongoRepository<Damage, String> {
     public ArrayList<Damage> findAllByStatusAndClientId(String status, String clientId);
+    public ArrayList<Damage> findAllByStatus(String status);
     public Damage findDamageById(String id);
 }

@@ -6,13 +6,11 @@ import MyHeader from "../components/Header.jsx";
 import MyFooter from "../components/Footer.jsx";
 import MySider from "../components/Sider";
 import AddDamageBox from "../components/AddDamageBox";
+import ImagesList from "../components/ImagesList";
+import DamagesList from "../components/DamagesList";
 import * as Consts from "../resources/Consts";
 
 const { Content } = Layout;
-
-const logFile = (file) => {
-  console.log(file);
-};
 
 class NewDamages extends React.Component {
   constructor(props) {
@@ -23,65 +21,17 @@ class NewDamages extends React.Component {
       damages: [],
       logos: [],
       images: [],
+      selectedDamage: null,
     };
+    this.updateState = this.updateState;
   }
 
-  componentDidMount() {
-    let headers = {
-      Authorization: sessionStorage.getItem("authToken"),
-    };
-
-    fetch(`${Consts.API_URL}/damages/new/${sessionStorage.getItem("userId")}`, {
-      headers,
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        this.setState({ damages: Array.from(data) });
-      })
-      .then(() => {
-        this.state.damages.forEach((damage) => {
-          fetch(`${Consts.API_URL}/damages/photos/${damage.photos[0]}`, {
-            headers,
-          })
-            .then((res) => res.blob())
-            .then((blob) => {
-              //this.setState({ logos: URL.createObjectURL(blob) });
-              let newLogos = this.state.logos;
-              newLogos.push(URL.createObjectURL(blob));
-              this.setState({
-                logos: newLogos,
-              });
-            });
-        });
-      });
-  }
+  updateState = (name, value) => {
+    this.setState({ [name]: value });
+  };
 
   handleClick = (newView) => {
     this.setState({ render: newView });
-  };
-
-  showPhotos = (newView, itemIndex) => {
-    this.setState({ render: newView });
-    this.setState({ images: [] });
-
-    let headers = {
-      Authorization: sessionStorage.getItem("authToken"),
-    };
-
-    this.state.damages[itemIndex].photos.forEach((filename) => {
-      fetch(`${Consts.API_URL}/damages/photos/${filename}`, {
-        headers,
-      })
-        .then((res) => res.blob())
-        .then((blob) => {
-          //this.setState({ logos: URL.createObjectURL(blob) });
-          let newImages = this.state.images;
-          newImages.push(URL.createObjectURL(blob));
-          this.setState({
-            images: newImages,
-          });
-        });
-    });
   };
 
   render() {
@@ -103,51 +53,12 @@ class NewDamages extends React.Component {
             >
               + Add new damage
             </Button>
-            <div className="list-div">
-              <List
-                itemLayout="vertical"
-                pagination={{
-                  onChange: (page) => {
-                    console.log(page);
-                  },
-                  pageSize: 3,
-                }}
-                dataSource={this.state.damages}
-                renderItem={(item) => (
-                  <List.Item
-                    key={item.title}
-                    extra={
-                      <img
-                        width={272}
-                        height={136}
-                        alt="logo"
-                        src={this.state.logos[this.state.damages.indexOf(item)]}
-                      />
-                    }
-                  >
-                    <List.Item.Meta
-                      title={
-                        <a
-                          onClick={() => {
-                            this.showPhotos(
-                              "photos",
-                              this.state.damages.indexOf(item)
-                            );
-                          }}
-                        >
-                          {item.vehicleMake +
-                            " " +
-                            item.vehicleModel +
-                            ", production year " +
-                            item.productionYear}
-                        </a>
-                      }
-                      description={item.description}
-                    />
-                  </List.Item>
-                )}
-              />
-            </div>
+            <DamagesList
+              type="client-new"
+              damages={this.state.damages}
+              logos={this.state.logos}
+              updateState={this.updateState}
+            />
           </Content>
           <MyFooter />
         </Layout>
@@ -198,28 +109,9 @@ class NewDamages extends React.Component {
               Go back
             </Button>
             <div className="photos-list-div">
-              <List
-                grid={{
-                  gutter: 16,
-                  xs: 1,
-                  sm: 2,
-                  md: 4,
-                  lg: 4,
-                  xl: 6,
-                  xxl: 3,
-                }}
-                dataSource={this.state.images}
-                renderItem={(item) => (
-                  <List.Item>
-                    <Card>
-                      <Image
-                        width={200}
-                        height={200}
-                        src={this.state.images[this.state.images.indexOf(item)]}
-                      />
-                    </Card>
-                  </List.Item>
-                )}
+              <ImagesList
+                damage={this.state.selectedDamage}
+                updateState={this.updateState}
               />
             </div>
           </Content>

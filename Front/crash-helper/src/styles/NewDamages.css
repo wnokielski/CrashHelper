@@ -42,3 +42,9 @@
   position: relative;
   left: 15%;
 }
+
+.photos-list-div {
+  position: relative;
+  width: 50%;
+  left: 20%;
+}

@@ -40,6 +40,11 @@ public class DamagesController {
         return repo.findAllByStatusAndClientId(status, userId);
     }
 
+    @GetMapping("/{status}")
+    public ArrayList<Damage> getDamagesByStatus(@PathVariable String status) {
+        return repo.findAllByStatus(status);
+    }
+
     @GetMapping("/photos/{filename}")
     public Resource getDamagePhotoByFilename(@PathVariable String filename){
         return fileService.getPhoto(filename);
