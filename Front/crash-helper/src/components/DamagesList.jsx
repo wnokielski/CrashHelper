@@ -24,7 +24,9 @@ class DamagesList extends React.Component {
     if (this.props.type == "client-new")
       url = `${Consts.API_URL}/damages/new/${sessionStorage.getItem("userId")}`;
     else if (this.props.type == "workshop-new")
-      url = `${Consts.API_URL}/damages/new`;
+      url = `${
+        Consts.API_URL
+      }/damages/waitingForPricing/${sessionStorage.getItem("userId")}`;
 
     fetch(url, {
       headers,

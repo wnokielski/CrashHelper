@@ -46,6 +46,11 @@ public class DamagesController {
         return repo.findAllByStatus(status);
     }
 
+    @GetMapping("/waitingForPricing/{workshopId}")
+    public ArrayList<Damage> getDamagesWaitingForPricing(@PathVariable String workshopId) {
+        return damageService.getDamagesWaitingForPricing(workshopId);
+    }
+
     @GetMapping("/photos/{filename}")
     public Resource getDamagePhotoByFilename(@PathVariable String filename){
         return fileService.getPhoto(filename);
