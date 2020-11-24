@@ -35,6 +35,22 @@ class DamagesList extends React.Component {
       url = `${Consts.API_URL}/damages/priced/workshop/${sessionStorage.getItem(
         "userId"
       )}`;
+    else if (this.props.type == "client-in-progress")
+      url = `${Consts.API_URL}/damages/inProgress/${sessionStorage.getItem(
+        "userId"
+      )}`;
+    else if (this.props.type == "workshop-in-progress")
+      url = `${
+        Consts.API_URL
+      }/damages/workshop/inProgress/${sessionStorage.getItem("userId")}`;
+    else if (this.props.type == "client-completed")
+      url = `${Consts.API_URL}/damages/completed/${sessionStorage.getItem(
+        "userId"
+      )}`;
+    else if (this.props.type == "workshop-completed")
+      url = `${
+        Consts.API_URL
+      }/damages/workshop/completed/${sessionStorage.getItem("userId")}`;
 
     fetch(url, {
       headers,

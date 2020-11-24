@@ -36,9 +36,9 @@ public class DamagesController {
         return damageService.registerNewDamage(crashData, photos);
     }
 
-    @GetMapping("/{status}/{userId}")
-    public ArrayList<Damage> getDamagesByStatusAndUserId(@PathVariable String status, @PathVariable String userId) {
-        return repo.findAllByStatusAndClientId(status, userId);
+    @GetMapping("/{status}/{clientId}")
+    public ArrayList<Damage> getDamagesByStatusAndUserId(@PathVariable String status, @PathVariable String clientId) {
+        return repo.findAllByStatusAndClientId(status, clientId);
     }
 
     @GetMapping("/{status}")
@@ -72,10 +72,27 @@ public class DamagesController {
         return damageService.getPricedDamagesClient(clientId);
     }
 
-    @PostMapping("/selectOffer/{damageId}/{offerId}")
-    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/workshop/inProgress/{workshopId}")
+    public ArrayList<Damage> getDamagesInProgressByWorkshopId(@PathVariable String workshopId) {
+        return damageService.getDamagesInProgressByWorkshopId(workshopId);
+    }
+
+    @GetMapping("/workshop/completed/{workshopId}")
+    public ArrayList<Damage> getDamagesCompletedByWorkshopId(@PathVariable String workshopId) {
+        return damageService.getDamagesCompletedByWorkshopId(workshopId);
+    }
+
+    @PatchMapping("/selectOffer/{damageId}/{offerId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void selectOffer(@PathVariable String damageId, @PathVariable String offerId){
         damageService.selectOffer(damageId, offerId);
     }
+
+    @PatchMapping("/completeDamage/{damageId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void completeDamage(@PathVariable String damageId){
+        damageService.completeDamage(damageId);
+    }
+
 
 }

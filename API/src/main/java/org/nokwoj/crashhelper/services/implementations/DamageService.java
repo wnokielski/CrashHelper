@@ -91,7 +91,10 @@ public class DamageService implements IDamageService {
 
         for (Offer o: offers
              ) {
-            damages.add(damageRepository.findDamageById(o.getDamageId()));
+            Damage dam = damageRepository.findDamageById(o.getDamageId());
+            if(dam.getStatus().equals("priced")){
+                damages.add(dam);
+            }
         }
         return damages;
     }
@@ -104,6 +107,60 @@ public class DamageService implements IDamageService {
         damage.setStatus("inProgress");
 
         damageRepository.save(damage);
+    }
+
+    @Override
+    public void completeDamage(String damageId) {
+        Damage damage = damageRepository.findDamageById(damageId);
+        damage.setStatus("completed");
+
+        damageRepository.save(damage);
+    }
+
+    @Override
+    public ArrayList<Damage> getDamagesInProgressByWorkshopId(String workshopId) {
+        ArrayList<Damage> damages = damageRepository.findAllByStatus("inProgress");
+
+        ArrayList<Offer> offers = offerRepository.findAllByWorkshopId(workshopId);
+
+        ArrayList<Damage> responseList = new ArrayList<Damage>();
+
+        if(offers.size() > 0){
+            for(Damage d: damages){
+                for(Offer o: offers){
+                    if(d.getId().equals(o.getDamageId())){
+
+                            responseList.add(d);
+
+                    }
+                }
+            }
+        }
+
+        return responseList;
+    }
+
+    @Override
+    public ArrayList<Damage> getDamagesCompletedByWorkshopId(String workshopId) {
+        ArrayList<Damage> damages = damageRepository.findAllByStatus("completed");
+
+        ArrayList<Offer> offers = offerRepository.findAllByWorkshopId(workshopId);
+
+        ArrayList<Damage> responseList = new ArrayList<Damage>();
+
+        if(offers.size() > 0){
+            for(Damage d: damages){
+                for(Offer o: offers){
+                    if(d.getSelectedOffer().equals(o.getId())){
+
+                        responseList.add(d);
+
+                    }
+                }
+            }
+        }
+
+        return responseList;
     }
 
 }

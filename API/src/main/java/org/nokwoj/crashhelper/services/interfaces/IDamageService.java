@@ -14,4 +14,7 @@ public interface IDamageService {
     ArrayList<Damage> getPricedDamagesClient(String clientId);
     ArrayList<Damage> getPricedDamagesWorkshop(String workshopId);
     void selectOffer(String damageId, String offerId);
+    void completeDamage(String damageId);
+    ArrayList<Damage> getDamagesInProgressByWorkshopId(String workshopId);
+    ArrayList<Damage> getDamagesCompletedByWorkshopId(String workshopId);
 }

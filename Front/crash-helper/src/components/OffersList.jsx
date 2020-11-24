@@ -43,14 +43,14 @@ class OffersList extends React.Component {
     });
 
     let requestOptions = {
-      method: "POST",
+      method: "PATCH",
       headers: { Authorization: sessionStorage.getItem("authToken") },
     };
 
     let url = `${Consts.API_URL}/damages/selectOffer/${this.props.damage.id}/${e.id}`;
 
     fetch(url, requestOptions).then((response) => {
-      if (response.status == 200) {
+      if (response.status == 204) {
         window.location.reload(false);
       }
     });
