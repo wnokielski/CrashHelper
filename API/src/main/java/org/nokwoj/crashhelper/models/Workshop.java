@@ -25,6 +25,8 @@ public class Workshop {
     @DBRef
     private Account account;
 
+    private float rating = (float) 0.0;
+
     private ArrayList<Opinion> opinions = new ArrayList<Opinion>();
 
     public Workshop() {}
@@ -103,5 +105,13 @@ public class Workshop {
 
     public void setAccount(Account account) {
         this.account = account;
+    }
+
+    public float getRating() {
+        return rating;
+    }
+
+    public void setRating(float rating) {
+        this.rating = rating;
     }
 }

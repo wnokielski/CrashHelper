@@ -9,4 +9,6 @@ import java.util.ArrayList;
 @Repository
 public interface OfferRepository extends MongoRepository<Offer, String> {
     ArrayList<Offer> findAllByWorkshopId(String workshopId);
+    ArrayList<Offer> findAllByDamageId(String damageId);
+    Offer findOfferById(String id);
 }

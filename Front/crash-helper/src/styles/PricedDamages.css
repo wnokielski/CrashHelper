@@ -4,3 +4,36 @@
   padding: 24px;
   min-height: 280px;
 }
+
+.show-offers-button {
+  position: relative;
+  right: 32vw;
+}
+
+.cancel-button {
+  position: relative;
+  right: 32vw;
+}
+
+.show-offers-button {
+  position: relative;
+  left: 1em;
+}
+
+.list-div {
+  width: 80%;
+  position: relative;
+  left: 15%;
+}
+
+.photos-list-div {
+  position: relative;
+  width: 50%;
+  left: 20%;
+}
+
+.buttons-div {
+  position: relative;
+  left: 4em;
+  bottom: 1em;
+}

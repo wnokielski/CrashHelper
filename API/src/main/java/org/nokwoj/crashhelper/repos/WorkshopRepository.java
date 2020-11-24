@@ -8,4 +8,5 @@ import org.nokwoj.crashhelper.models.Workshop;
 @Repository
 public interface WorkshopRepository extends MongoRepository<Workshop, String> {
     public Workshop findWorkshopByAccount(Account account);
+    public Workshop findWorkshopById(String id);
 }

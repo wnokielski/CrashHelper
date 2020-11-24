@@ -11,4 +11,7 @@ public interface IDamageService {
     String registerNewDamage(DamageRegistrationDto damage, MultipartFile[] photos);
     void priceDamage(OfferDto offerDto);
     ArrayList<Damage> getDamagesWaitingForPricing(String workshopId);
+    ArrayList<Damage> getPricedDamagesClient(String clientId);
+    ArrayList<Damage> getPricedDamagesWorkshop(String workshopId);
+    void selectOffer(String damageId, String offerId);
 }

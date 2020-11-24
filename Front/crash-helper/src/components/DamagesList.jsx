@@ -27,6 +27,14 @@ class DamagesList extends React.Component {
       url = `${
         Consts.API_URL
       }/damages/waitingForPricing/${sessionStorage.getItem("userId")}`;
+    else if (this.props.type == "client-priced")
+      url = `${Consts.API_URL}/damages/priced/client/${sessionStorage.getItem(
+        "userId"
+      )}`;
+    else if (this.props.type == "workshop-priced")
+      url = `${Consts.API_URL}/damages/priced/workshop/${sessionStorage.getItem(
+        "userId"
+      )}`;
 
     fetch(url, {
       headers,
@@ -74,6 +82,7 @@ class DamagesList extends React.Component {
           renderItem={(item) => (
             <List.Item
               key={item.title}
+              // actions={[<a>Show offers</a>]}
               extra={
                 <img
                   width={272}

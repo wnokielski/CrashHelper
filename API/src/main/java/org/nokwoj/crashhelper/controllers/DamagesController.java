@@ -62,4 +62,20 @@ public class DamagesController {
         damageService.priceDamage(offerDto);
     }
 
+    @GetMapping("/priced/workshop/{workshopId}")
+    public ArrayList<Damage> getPricedDamagesWorkshop(@PathVariable String workshopId) {
+        return damageService.getPricedDamagesWorkshop(workshopId);
+    }
+
+    @GetMapping("/priced/client/{clientId}")
+    public ArrayList<Damage> getPricedDamagesClient(@PathVariable String clientId) {
+        return damageService.getPricedDamagesClient(clientId);
+    }
+
+    @PostMapping("/selectOffer/{damageId}/{offerId}")
+    @ResponseStatus(HttpStatus.OK)
+    public void selectOffer(@PathVariable String damageId, @PathVariable String offerId){
+        damageService.selectOffer(damageId, offerId);
+    }
+
 }

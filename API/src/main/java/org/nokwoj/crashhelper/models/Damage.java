@@ -27,7 +27,7 @@ public class Damage {
 
     private String status;
 
-    private Offer selectedOffer;
+    private String selectedOffer;
 
     public Damage(){
     }
@@ -116,11 +116,11 @@ public class Damage {
         this.status = status;
     }
 
-    public Offer getSelectedOffer() {
+    public String getSelectedOffer() {
         return selectedOffer;
     }
 
-    public void setSelectedOffer(Offer selectedOffer) {
+    public void setSelectedOffer(String selectedOffer) {
         this.selectedOffer = selectedOffer;
     }
 }
