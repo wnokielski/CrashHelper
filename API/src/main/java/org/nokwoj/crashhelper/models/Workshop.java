@@ -27,8 +27,6 @@ public class Workshop {
 
     private float rating = (float) 0.0;
 
-    private ArrayList<Opinion> opinions = new ArrayList<Opinion>();
-
     public Workshop() {}
 
     public Workshop(String name, String city, String street, int stNumber, int phoneNumber){
@@ -85,18 +83,6 @@ public class Workshop {
 
     public void setPhoneNumber(int phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    public ArrayList<Opinion> getOpinions() {
-        return opinions;
-    }
-
-    public void setOpinions(ArrayList<Opinion> opinions) {
-        this.opinions = opinions;
-    }
-
-    public void addOpinion(Opinion o){
-        this.opinions.add(o);
     }
 
     public Account getAccount() {

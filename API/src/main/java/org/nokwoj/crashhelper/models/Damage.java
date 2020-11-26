@@ -13,8 +13,6 @@ public class Damage {
 
     private String clientId;
 
-    private String workshopId;
-
     private String vehicleMake;
 
     private String vehicleModel;
@@ -40,7 +38,6 @@ public class Damage {
         this.photos = photos;
         this.description = description;
         this.status = "new";
-        this.workshopId = null;
         this.selectedOffer = null;
     }
 
@@ -58,14 +55,6 @@ public class Damage {
 
     public void setClientId(String clientId) {
         this.clientId = clientId;
-    }
-
-    public String getWorkshopId() {
-        return workshopId;
-    }
-
-    public void setWorkshopId(String workshopId) {
-        this.workshopId = workshopId;
     }
 
     public String getVehicleMake() {

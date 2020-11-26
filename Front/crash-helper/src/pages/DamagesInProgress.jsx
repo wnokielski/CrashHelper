@@ -23,6 +23,7 @@ class NewDamages extends React.Component {
       selectedDamage: null,
       visible: false,
     };
+    this.updateState = this.updateState;
   }
 
   updateState = (name, value) => {

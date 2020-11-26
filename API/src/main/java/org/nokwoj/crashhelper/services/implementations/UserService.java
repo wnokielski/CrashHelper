@@ -37,7 +37,6 @@ public class UserService implements IUserService{
         workshop.setStreet(workshopDto.getStreet());
         workshop.setStNumber(workshopDto.getStNumber());
         workshop.setPhoneNumber(workshopDto.getPhoneNumber());
-        workshop.setOpinions(null);
         workshop.setAccount(account);
         workshopRepository.save(workshop);
 

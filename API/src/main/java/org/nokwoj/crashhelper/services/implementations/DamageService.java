@@ -1,11 +1,9 @@
 package org.nokwoj.crashhelper.services.implementations;
 
-import org.nokwoj.crashhelper.models.Damage;
-import org.nokwoj.crashhelper.models.DamageRegistrationDto;
-import org.nokwoj.crashhelper.models.Offer;
-import org.nokwoj.crashhelper.models.OfferDto;
+import org.nokwoj.crashhelper.models.*;
 import org.nokwoj.crashhelper.repos.DamageRepository;
 import org.nokwoj.crashhelper.repos.OfferRepository;
+import org.nokwoj.crashhelper.repos.OpinionRepository;
 import org.nokwoj.crashhelper.services.interfaces.IDamageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +23,9 @@ public class DamageService implements IDamageService {
 
     @Autowired
     OfferRepository offerRepository;
+
+    @Autowired
+    OpinionRepository opinionRepository;
 
     @Override
     public String registerNewDamage(DamageRegistrationDto damage, MultipartFile[] photos) {
@@ -160,6 +161,20 @@ public class DamageService implements IDamageService {
             }
         }
 
+        return responseList;
+    }
+
+    @Override
+    public ArrayList<Damage> getDamagesWithPendingOpinions(String clientId) {
+        ArrayList<Damage> damages = damageRepository.findAllByStatusAndClientId("completed", clientId);
+
+        ArrayList<Damage> responseList = new ArrayList<Damage>();
+
+        for(Damage d: damages){
+            if(opinionRepository.findAllByDamageId(d.getId()).size() == 0){
+                responseList.add(d);
+            }
+        }
         return responseList;
     }
 

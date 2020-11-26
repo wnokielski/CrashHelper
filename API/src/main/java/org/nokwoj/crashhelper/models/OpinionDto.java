@@ -1,18 +1,8 @@
 package org.nokwoj.crashhelper.models;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
-@Document
-public class Opinion {
-
-    @Id
-    private String id;
+public class OpinionDto {
 
     private String clientId;
-
-    private String workshopId;
 
     private String damageId;
 
@@ -20,28 +10,12 @@ public class Opinion {
 
     private int rate;
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public String getClientId() {
         return clientId;
     }
 
     public void setClientId(String clientId) {
         this.clientId = clientId;
-    }
-
-    public String getWorkshopId() {
-        return workshopId;
-    }
-
-    public void setWorkshopId(String workshopId) {
-        this.workshopId = workshopId;
     }
 
     public String getDamageId() {
@@ -68,14 +42,12 @@ public class Opinion {
         this.rate = rate;
     }
 
-    public Opinion(){};
+    public OpinionDto(){};
 
-    public Opinion(String damageId, String clientId, String workshopId, String description, int rate){
+    public OpinionDto(String damageId, String clientId, String description, int rate){
         this.damageId = damageId;
         this.clientId = clientId;
-        this.workshopId = workshopId;
         this.description = description;
         this.rate = rate;
     }
-
 }

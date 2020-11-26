@@ -51,6 +51,10 @@ class DamagesList extends React.Component {
       url = `${
         Consts.API_URL
       }/damages/workshop/completed/${sessionStorage.getItem("userId")}`;
+    else if (this.props.type == "pending-opinions")
+      url = `${Consts.API_URL}/damages/pendingOpinions/${sessionStorage.getItem(
+        "userId"
+      )}`;
 
     fetch(url, {
       headers,
@@ -79,7 +83,11 @@ class DamagesList extends React.Component {
   }
 
   showPhotos = (damage) => {
-    this.props.updateState("render", "photos");
+    if (this.props.type == "pending-opinions") {
+      this.props.updateState("render", "add-opinion");
+    } else {
+      this.props.updateState("render", "photos");
+    }
     this.props.updateState("selectedDamage", damage);
   };
 

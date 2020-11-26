@@ -21,6 +21,7 @@ class CompletedDamages extends React.Component {
       images: [],
       selectedDamage: null,
     };
+    this.updateState = this.updateState;
   }
 
   updateState = (name, value) => {

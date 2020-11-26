@@ -41,6 +41,11 @@ public class DamagesController {
         return repo.findAllByStatusAndClientId(status, clientId);
     }
 
+    @GetMapping("/byId/{damageId}")
+    public Damage getDamageById(@PathVariable String damageId) {
+        return repo.findDamageById(damageId);
+    }
+
     @GetMapping("/{status}")
     public ArrayList<Damage> getDamagesByStatus(@PathVariable String status) {
         return repo.findAllByStatus(status);
@@ -70,6 +75,11 @@ public class DamagesController {
     @GetMapping("/priced/client/{clientId}")
     public ArrayList<Damage> getPricedDamagesClient(@PathVariable String clientId) {
         return damageService.getPricedDamagesClient(clientId);
+    }
+
+    @GetMapping("/pendingOpinions/{clientId}")
+    public ArrayList<Damage> getDamagesWithPendingOpinion(@PathVariable String clientId) {
+        return damageService.getDamagesWithPendingOpinions(clientId);
     }
 
     @GetMapping("/workshop/inProgress/{workshopId}")
