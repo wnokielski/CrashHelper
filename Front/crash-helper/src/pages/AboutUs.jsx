@@ -13,7 +13,18 @@ class AboutUs extends React.Component {
       <Layout>
         <MyHeader selected={["2"]} type="unlogged" />
         <Content>
-          <div className="content">Tutaj będzie jakiś ciekawy tekst</div>
+          <div className="content">
+            Crash Helper is a web app for helping in your car repair after
+            crash. You can add a damage with photos, then registered workshops
+            can evaluate it.
+            <br></br>
+            <br></br>
+            Tech stack:
+            <br></br>
+            Backend: Java + Spring Boot + MongoDB
+            <br></br>
+            Frontend: JavaScript + React
+          </div>
         </Content>
         <MyFooter />
       </Layout>

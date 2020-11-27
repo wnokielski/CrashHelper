@@ -22,7 +22,7 @@ class MainPage extends React.Component {
           open={["null"]}
           selected={["null"]}
         ></MySider>
-        <Content className="content">Po logowanku!</Content>
+        <Content className="content">You're logged in!</Content>
         <MyFooter />
       </Layout>
     );

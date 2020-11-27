@@ -77,6 +77,7 @@ class OpinionsList extends React.Component {
               });
             });
         });
+        console.log(this.state.workshops);
       });
   }
 
@@ -114,7 +115,20 @@ class OpinionsList extends React.Component {
                 // actions={[<a>Show offers</a>]}
               >
                 <List.Item.Meta
-                  title={item.rate}
+                  title={
+                    this.state.clients[this.state.opinions.indexOf(item)].name +
+                    " " +
+                    this.state.clients[this.state.opinions.indexOf(item)]
+                      .surname +
+                    ": " +
+                    item.rate +
+                    ", car: " +
+                    this.state.damages[this.state.opinions.indexOf(item)]
+                      .vehicleMake +
+                    " " +
+                    this.state.damages[this.state.opinions.indexOf(item)]
+                      .vehicleModel
+                  }
                   description={item.description}
                 />
               </List.Item>
